@@ -18,9 +18,9 @@ const RegistrationSchema = Yup.object().shape({
         'Please create a stronger password. Min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit',
     })
     .required('Required'),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'Passwords must match')
-    .required('Required'),
+  // confirmPassword: Yup.string()
+  //   .oneOf([Yup.ref('password'), null], 'Passwords must match')
+  //   .required('Required'),
 });
 
 const initialValues = {
@@ -46,33 +46,39 @@ export default function RegistrationForm() {
       onSubmit={handleSubmit}
       validationSchema={RegistrationSchema}
     >
-      <Form className={css.btn}>
-        <label htmlFor={nameFieldId}></label>
+      <Form className={css.form}>
+        <label htmlFor={nameFieldId} className={css.label}>
+          name
+        </label>
         <Field
-          className={css.btn}
+          className={css.field}
           type="text"
           name="name"
           placeholder="Your Name"
           id={nameFieldId}
         />
-        <label htmlFor={emailFieldId}></label>
+        <label htmlFor={emailFieldId} className={css.label}>
+          email
+        </label>
         <Field
-          className={css.btn}
+          className={css.field}
           type="email"
           name="email"
           placeholder="Email"
           id={emailFieldId}
         />
-        <label htmlFor={passwordFieldId}></label>
+        <label htmlFor={passwordFieldId} className={css.label}>
+          password
+        </label>
         <Field
-          className={css.btn}
+          className={css.field}
           type="password"
           name="password"
           placeholder="password"
           id={passwordFieldId}
         />
         <button type="submit" className={css.btn}>
-          Register
+          Create your account
         </button>
       </Form>
     </Formik>

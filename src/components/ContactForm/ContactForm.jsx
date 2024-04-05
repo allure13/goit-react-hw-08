@@ -4,8 +4,8 @@ import css from './ContactForm.module.css';
 import * as Yup from 'yup';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from '../../redux/contactsSlice';
-import { addContact } from '../../redux/contactsOps';
+import { selectContacts } from '../../redux/contacts/selectors';
+import { addContact } from '../../redux/contacts/operations';
 
 const initialValues = {
   name: '',

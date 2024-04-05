@@ -18,7 +18,7 @@ const initialValues = {
   password: '',
 };
 
-export default function RegistrationForm() {
+export default function LoginForm() {
   const dispatch = useDispatch();
   const emailFieldId = useId();
   const passwordFieldId = useId();
@@ -34,18 +34,22 @@ export default function RegistrationForm() {
       onSubmit={handleSubmit}
       validationSchema={LoginSchema}
     >
-      <Form className={css.btn}>
-        <label htmlFor={emailFieldId}></label>
+      <Form className={css.form}>
+        <label htmlFor={emailFieldId} className={css.label}>
+          email
+        </label>
         <Field
-          className={css.btn}
+          className={css.field}
           type="email"
           name="email"
           placeholder="Email"
           id={emailFieldId}
         />
-        <label htmlFor={passwordFieldId}></label>
+        <label htmlFor={passwordFieldId} className={css.label}>
+          password
+        </label>
         <Field
-          className={css.btn}
+          className={css.field}
           type="password"
           name="password"
           placeholder="password"
