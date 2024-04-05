@@ -18,9 +18,9 @@ const RegistrationSchema = Yup.object().shape({
         'Please create a stronger password. Min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit',
     })
     .required('Required'),
-  // confirmPassword: Yup.string()
-  //   .oneOf([Yup.ref('password'), null], 'Passwords must match')
-  //   .required('Required'),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+    .required('Required'),
 });
 
 const initialValues = {
