@@ -32,7 +32,7 @@ export default function LoginForm() {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={LoginSchema}
+      // validationSchema={LoginSchema}
     >
       <Form className={css.form}>
         <label htmlFor={emailFieldId} className={css.label}>

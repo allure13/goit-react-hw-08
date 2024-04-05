@@ -44,7 +44,7 @@ export default function RegistrationForm() {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      validationSchema={RegistrationSchema}
+      // validationSchema={RegistrationSchema}
     >
       <Form className={css.form}>
         <label htmlFor={nameFieldId} className={css.label}>
