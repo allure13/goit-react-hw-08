@@ -6,19 +6,13 @@ import { register } from '../../redux/auth/operations';
 import * as Yup from 'yup';
 import { Button } from '@mui/material';
 
-const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
-const RegistrationSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, 'Too short!')
-    .max(30, 'Too long!')
-    .required('Required!'),
-  email: Yup.string().email('Please, enter a valid email').required('Required'),
-  password: Yup.string()
-    .matches(passwordRules, {
-      message:
-        'Please create a stronger password. Min 5 characters, 1 upper case letter, 1 lower case letter, 1 numeric digit',
-    })
-    .required('Required'),
+const validationSchema = Yup.object({
+  email: Yup.string('Enter your email')
+    .email('Enter a valid email')
+    .required('Email is required'),
+  password: Yup.string('Enter your password')
+    .min(8, 'Password should be of minimum 8 characters length')
+    .required('Password is required'),
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
     .required('Required'),
@@ -45,7 +39,7 @@ export default function RegistrationForm() {
     <Formik
       initialValues={initialValues}
       onSubmit={handleSubmit}
-      // validationSchema={RegistrationSchema}
+      validationSchema={validationSchema}
     >
       <Form className={css.form}>
         <label htmlFor={nameFieldId} className={css.label}>
