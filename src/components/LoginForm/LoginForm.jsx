@@ -4,6 +4,7 @@ import { useId } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/operations';
 import * as Yup from 'yup';
+import { Button } from '@mui/material';
 
 const passwordRules = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
 const LoginSchema = Yup.object().shape({
@@ -55,9 +56,9 @@ export default function LoginForm() {
           placeholder="password"
           id={passwordFieldId}
         />
-        <button type="submit" className={css.btn}>
+        <Button variant="contained" type="submit" className={css.btn}>
           Log In
-        </button>
+        </Button>
       </Form>
     </Formik>
   );
