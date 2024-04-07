@@ -12,7 +12,7 @@ import Loader from '../components/Loader/Loader';
 
 export default function Contacts() {
   const contacts = useSelector(selectContacts);
-  const isLoading = useSelector(selectLoading);
+  const loading = useSelector(selectLoading);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Contacts() {
       <ContactForm />
       <SearchBar />
       {contacts.length > 0 ? <ContactList /> : <Notification />}
-      {isLoading && <Loader />}
+      {loading && <Loader />}
     </main>
   );
 }

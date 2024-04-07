@@ -60,7 +60,7 @@ const contactsSlice = createSlice({
       .addCase(editContact.rejected, handleRejected)
       .addCase(logOut.fulfilled, state => {
         state.items = [];
-        state.isLoading = false;
+        state.loading = false;
       }),
 });
 

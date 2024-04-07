@@ -2,10 +2,10 @@ import { Field, Formik, Form, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import css from './ContactForm.module.css';
 import * as Yup from 'yup';
-import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from '../../redux/contacts/selectors';
 import { addContact } from '../../redux/contacts/operations';
+import toast from 'react-hot-toast';
 
 const initialValues = {
   name: '',
@@ -36,15 +36,13 @@ export default function ContactForm() {
     if (isDuplicateNumber) {
       alert('This phone number already exists!');
     } else {
-      dispatch(
-        addContact({
-          name: values.name,
-          number: values.number,
-          id: nanoid(),
-        })
-      );
+      dispatch(addContact(values))
+        .unwrap()
+        .then(() => {
+          toast.success('Added!');
+          actions.resetForm();
+        });
     }
-    actions.resetForm();
   };
 
   return (

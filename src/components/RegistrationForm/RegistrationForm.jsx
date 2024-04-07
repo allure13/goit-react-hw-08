@@ -41,7 +41,7 @@ export default function RegistrationForm() {
       onSubmit={handleSubmit}
       // validationSchema={validationSchema}
     >
-      <Form className={css.form}>
+      <Form className={css.form} autoComplete="off">
         <label htmlFor={nameFieldId} className={css.label}>
           name
         </label>

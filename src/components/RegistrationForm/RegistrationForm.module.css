@@ -1,4 +1,31 @@
-/* .btn {
-  width: 50px;
-  height: 20px;
-} */
+.form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid rgba(71, 2, 11, 0.581);
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+  background-color: rgba(71, 2, 11, 0.581);
+}
+.label {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+.field {
+  width: 370px;
+  height: 45px;
+  border: 2px solid rgb(70, 3, 3);
+  outline: transparent;
+  border-radius: 20px;
+  padding: 5px 0 5px 20px;
+  font-size: 24px;
+}
+.field:hover,
+.field:focus {
+  border: 2px solid rgb(119, 5, 5);
+  box-shadow: 3px 2px 2cqh rgb(161, 4, 4);
+}

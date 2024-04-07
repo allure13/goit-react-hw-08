@@ -3,9 +3,11 @@ import { FaPhone } from 'react-icons/fa6';
 import { FaUser } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
+// import { useState } from 'react';
 
-export default function Contact({ name, number, id }) {
+export default function Contact({ contact }) {
   const dispatch = useDispatch();
+  // const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDelete = () => dispatch(deleteContact(id));
   return (
@@ -13,11 +15,11 @@ export default function Contact({ name, number, id }) {
       <div className={css.div}>
         <p className={css.text}>
           <FaUser className={css.icon} />
-          {name}
+          {contact.name}
         </p>
         <p>
           <FaPhone className={css.icon} />
-          {number}
+          {contact.number}
         </p>
       </div>
       <button className={css.btn} onClick={handleDelete}>
