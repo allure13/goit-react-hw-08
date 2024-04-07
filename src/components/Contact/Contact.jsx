@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts/operations';
 // import { useState } from 'react';
 
-export default function Contact({ contact }) {
+export default function Contact({ name, number, id }) {
   const dispatch = useDispatch();
   // const [isDeleting, setIsDeleting] = useState(false);
 
@@ -15,11 +15,11 @@ export default function Contact({ contact }) {
       <div className={css.div}>
         <p className={css.text}>
           <FaUser className={css.icon} />
-          {contact.name}
+          {name}
         </p>
         <p>
           <FaPhone className={css.icon} />
-          {contact.number}
+          {number}
         </p>
       </div>
       <button className={css.btn} onClick={handleDelete}>
